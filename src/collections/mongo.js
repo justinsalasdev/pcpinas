@@ -3,7 +3,7 @@ const { MongoClient } = require("mongodb")
 const dbName = "pcpinas"
 
 const uri =
-	process.env.MONGOURI ||
+	process.env.MONGO_URI ||
 	`mongodb://127.0.0.1:27017/${dbName}compressors=zlib&gssapiServiceName=mongodb`
 
 const newClient = new MongoClient(uri, {
