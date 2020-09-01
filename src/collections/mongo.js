@@ -2,7 +2,9 @@ const { MongoClient } = require("mongodb")
 
 const dbName = "pcpinas"
 
-const uri = `mongodb://127.0.0.1:27017/${dbName}compressors=zlib&gssapiServiceName=mongodb`
+const uri =
+	process.env.MONGODB_URI ||
+	`mongodb://127.0.0.1:27017/${dbName}compressors=zlib&gssapiServiceName=mongodb`
 const newClient = new MongoClient(uri, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true

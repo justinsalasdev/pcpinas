@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react"
-import { API } from "../../config"
 import { useFormContext } from "react-hook-form"
 
 export default props => {
@@ -26,7 +25,7 @@ export default props => {
 				setPhotoURL(e.target.result)
 			}
 		} else if (mode === "edit") {
-			setPhotoURL(`${API}/product/photo/${collection}/${productId}`)
+			setPhotoURL(`/product/photo/${collection}/${productId}`)
 		} else {
 			return
 		}

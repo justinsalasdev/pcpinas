@@ -1,5 +1,4 @@
-import { useReducer, useEffect } from "react";
-import { API } from "../config";
+import { useReducer, useEffect } from "react"
 
 const initialState = {
 	status: "outdated",
@@ -7,22 +6,22 @@ const initialState = {
 	got: false,
 	error: null,
 	alertShown: false,
-	categories: [],
-};
+	categories: []
+}
 
 function reducer(state, action) {
 	switch (action.type) {
 		case "start":
-			return { ...initialState, getting: true };
+			return { ...initialState, getting: true }
 		case "fail":
 			return {
 				...state,
 				getting: false,
 				error: action.payload,
-				alertShown: true,
-			};
+				alertShown: true
+			}
 		case "new":
-			return { ...state, status: "outdated" };
+			return { ...state, status: "outdated" }
 
 		case "success":
 			return {
@@ -32,49 +31,49 @@ function reducer(state, action) {
 				got: true,
 				error: null,
 				categories: [...action.payload],
-				alertShown: true,
-			};
+				alertShown: true
+			}
 		case "acknowledge":
-			return { ...state, alertShown: false };
+			return { ...state, alertShown: false }
 		default:
-			return state;
+			return state
 	}
 }
 
 export default () => {
-	const [state, dispatch] = useReducer(reducer, initialState);
+	const [state, dispatch] = useReducer(reducer, initialState)
 
 	useEffect(() => {
 		if (state.status === "outdated") {
-			dispatch({ type: "start" });
-			fetch(`${API}/categories`, {
+			dispatch({ type: "start" })
+			fetch(`/categories`, {
 				method: "get",
 				headers: {
-					Accept: "application/json",
-				},
+					Accept: "application/json"
+				}
 			})
-				.then((response) => response.json())
-				.then((data) => {
+				.then(response => response.json())
+				.then(data => {
 					if (data.error && data.error.type === "client") {
-						dispatch({ type: "fail", payload: data.error });
+						dispatch({ type: "fail", payload: data.error })
 					} else if (data && data.length > 0) {
-						dispatch({ type: "success", payload: data });
+						dispatch({ type: "success", payload: data })
 					} else {
-						return Promise.reject();
+						return Promise.reject()
 					}
 				})
 				.catch(() => {
 					const customError = {
 						type: "crash",
 						message:
-							"Error retrieving categories. Please check network connection",
-					};
-					dispatch({ type: "fail", payload: customError });
-				});
+							"Error retrieving categories. Please check network connection"
+					}
+					dispatch({ type: "fail", payload: customError })
+				})
 		} else {
-			return;
+			return
 		}
 		// eslint-disable-next-line
-	}, [state.status]);
-	return [state, dispatch];
-};
+	}, [state.status])
+	return [state, dispatch]
+}

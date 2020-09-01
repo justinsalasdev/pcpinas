@@ -1,5 +1,4 @@
 import React from "react"
-import { API } from "../config"
 import useDeleteProduct from "../hooks/useDeleteProduct"
 import { useAuthState } from "../context/authContext"
 import { FaTrashAlt } from "react-icons/fa"
@@ -103,7 +102,7 @@ export default props => {
 								<img
 									className="thumbnail__content--product"
 									alt="product"
-									src={`${API}/product/photo/${collection}/${_id}`}
+									src={`/product/photo/${collection}/${_id}`}
 								/>
 							</div>
 						</div>

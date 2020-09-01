@@ -1,27 +1,26 @@
-import React, { useLayoutEffect } from "react";
-import Routes from "./Routes/Routes";
-import { API } from "./config";
+import React, { useLayoutEffect } from "react"
+import Routes from "./Routes/Routes"
 
-import Toolbar from "./components/Toolbar";
-import { useAuthDispatch } from "./context/authContext";
+import Toolbar from "./components/Toolbar"
+import { useAuthDispatch } from "./context/authContext"
 
 function App() {
-	const localToken = localStorage.getItem("token");
-	const localUser = JSON.parse(localStorage.getItem("user"));
+	const localToken = localStorage.getItem("token")
+	const localUser = JSON.parse(localStorage.getItem("user"))
 
-	const authDispatch = useAuthDispatch();
+	const authDispatch = useAuthDispatch()
 
 	useLayoutEffect(() => {
 		if (localUser && localToken) {
 			authDispatch({
 				type: "store",
-				payload: { user: localUser, token: localToken },
-			});
+				payload: { user: localUser, token: localToken }
+			})
 		} else {
-			return;
+			return
 		}
 		// eslint-disable-next-line
-	}, []);
+	}, [])
 
 	return (
 		<>
@@ -30,9 +29,9 @@ function App() {
 				<Routes />
 			</main>
 
-			<footer>{API}</footer>
+			<footer>Footer</footer>
 		</>
-	);
+	)
 }
 
-export default App;
+export default App

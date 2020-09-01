@@ -1,29 +1,28 @@
-import { useReducer } from "react";
-import { API } from "../config";
+import { useReducer } from "react"
 
 const initialState = {
 	initiated: false,
 	deleting: false,
 	deleted: false,
 	error: null,
-	alertShown: false,
-};
+	alertShown: false
+}
 
 function reducer(state, action) {
 	switch (action.type) {
 		case "initiate":
-			return { ...initialState, initiated: true };
+			return { ...initialState, initiated: true }
 		case "cancel":
-			return { ...state, initiated: false };
+			return { ...state, initiated: false }
 		case "start":
-			return { ...state, initiated: false, deleting: true };
+			return { ...state, initiated: false, deleting: true }
 		case "fail":
 			return {
 				...state,
 				deleting: false,
 				error: action.payload,
-				alertShown: true,
-			};
+				alertShown: true
+			}
 
 		case "success":
 			return {
@@ -31,51 +30,51 @@ function reducer(state, action) {
 				deleting: false,
 				deleted: true,
 				error: null,
-				alertShown: true,
-			};
+				alertShown: true
+			}
 
 		case "acknowledge":
-			return { ...state, alertShown: false };
+			return { ...state, alertShown: false }
 		default:
-			return state;
+			return state
 	}
 }
 
 export default (user, token, collection, productId, colDispatch) => {
-	const [state, dispatch] = useReducer(reducer, initialState);
+	const [state, dispatch] = useReducer(reducer, initialState)
 
 	const deleteProduct = () => {
-		dispatch({ type: "start" });
-		fetch(`${API}/product/delete/${collection}/${user.userId}/${productId}`, {
+		dispatch({ type: "start" })
+		fetch(`/product/delete/${collection}/${user.userId}/${productId}`, {
 			method: "delete",
 			headers: {
-				Authorization: `Bearer ${token}`,
-			},
+				Authorization: `Bearer ${token}`
+			}
 		})
-			.then((response) => response.json())
-			.then((data) => {
+			.then(response => response.json())
+			.then(data => {
 				if (data.error) {
-					return Promise.reject();
+					return Promise.reject()
 				} else {
-					dispatch({ type: "success" });
+					dispatch({ type: "success" })
 					// colDispatch({ type: "outdate", payload: collection });
 					colDispatch({
 						type: "delete",
 						payload: {
 							collection,
-							productId,
-						},
-					});
+							productId
+						}
+					})
 				}
 			})
 			.catch(() => {
 				const customError = {
 					type: "crash",
-					message: "Error deleting product",
-				};
-				dispatch({ type: "fail", payload: customError });
-			});
-	};
+					message: "Error deleting product"
+				}
+				dispatch({ type: "fail", payload: customError })
+			})
+	}
 
-	return [state, dispatch, deleteProduct];
-};
+	return [state, dispatch, deleteProduct]
+}
