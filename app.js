@@ -1,3 +1,4 @@
+const path = require("path")
 const express = require("express")
 const app = express()
 const bodyParser = require("body-parser")
@@ -6,7 +7,6 @@ const cors = require("cors")
 const { getCollection } = require("./src/collections/mongo")
 const collectionNames = require("./src/collections/names")
 
-require("dotenv").config()
 app.use(bodyParser.json())
 // app.use(expressValidator());
 app.use(cors())
@@ -16,6 +16,12 @@ app.use("/api", require("./src/routes/auth")) //auth router
 app.use("/api", require("./src/routes/categories")) //category router
 app.use("/api", require("./src/routes/products")) //category router
 // app.use("/api", require("./src/routes/product")); //product router
+
+app.use(express.static(path.join(__dirname, "client", "build")))
+
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "client", "build", "index.html"))
+})
 
 //initialize all app collections
 const collectionPromises = collectionNames.map(collectionName => {

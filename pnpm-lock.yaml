@@ -2,7 +2,6 @@ dependencies:
   bcrypt: 5.0.0
   body-parser: 1.19.0
   cors: 2.8.5
-  dotenv: 8.2.0
   express: 4.17.1
   express-validator: 5.3.1
   formidable: 1.2.2
@@ -402,12 +401,6 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-uEUyaDKoSQ1M4Oq8l45hSE26SnTxL6snNnqvK/VWx5wJhmff5z0FUVJDKDanor/6w3kzE3i7XZOk+7wC0EXr1A==
-  /dotenv/8.2.0:
-    dev: false
-    engines:
-      node: '>=8'
-    resolution:
-      integrity: sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
   /duplexer3/0.1.4:
     dev: false
     resolution:
@@ -1737,7 +1730,6 @@ specifiers:
   bcrypt: ^5.0.0
   body-parser: ^1.19.0
   cors: ^2.8.5
-  dotenv: ^8.2.0
   express: ^4.17.1
   express-validator: ^5.3.1
   formidable: ^1.2.2
