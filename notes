@@ -12,3 +12,7 @@ to jwt.verify
 add execute db.createCollection: --with validator and $jsonSchema : additionalProperties:false,
 db.users.createIndex( { "email": 1 }, { unique: true, name:'email-index' } )
 db.categories.createIndex( { "name": 1 }, { unique: true, name:'category-index' } )
+
+
+// "start": "node app",
+		// "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",

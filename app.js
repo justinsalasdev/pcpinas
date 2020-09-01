@@ -17,6 +17,12 @@ app.use("/api", require("./src/routes/categories")) //category router
 app.use("/api", require("./src/routes/products")) //category router
 // app.use("/api", require("./src/routes/product")); //product router
 
+// if (process.env.NODE_ENV === "production") {
+// 	console.log("production")
+// 	app.use(express.static("client/build"))
+// } else {
+// 	console.log("development")
+// }
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.get("*", (req, res) => {
