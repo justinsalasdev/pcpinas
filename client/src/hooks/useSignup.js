@@ -33,7 +33,7 @@ export default () => {
 
 	const signup = signupData => {
 		dispatch({ type: "start" })
-		fetch(`/signup`, {
+		fetch(`/api/signup`, {
 			method: "post",
 			headers: {
 				Accept: "application/json",

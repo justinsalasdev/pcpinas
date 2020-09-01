@@ -34,7 +34,7 @@ export default (user, token) => {
 	}
 	const saveCategory = categoryData => {
 		dispatch({ type: "start" })
-		fetch(`/category/create/${user.userId}`, {
+		fetch(`/api/category/create/${user.userId}`, {
 			method: "post",
 			headers: {
 				Accept: "application/json",

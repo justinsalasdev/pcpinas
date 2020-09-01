@@ -6,7 +6,7 @@ export default (collection, colState, colDispatch) => {
 	useEffect(() => {
 		if (colStatus === "outdated") {
 			colDispatch({ type: "start" })
-			fetch(`/products/${collection}`, {
+			fetch(`/api/products/${collection}`, {
 				method: "get",
 				headers: {
 					Accept: "application/json"

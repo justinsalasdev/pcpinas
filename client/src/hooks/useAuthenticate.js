@@ -36,7 +36,7 @@ export default (history, authDispatch) => {
 	const login = signinData => {
 		dispatch({ type: "start" })
 
-		fetch(`/login`, {
+		fetch(`/api/login`, {
 			method: "post",
 			headers: {
 				Accept: "application/json",

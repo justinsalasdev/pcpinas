@@ -39,7 +39,7 @@ export default (user, token, setSelectedCat, getCatDispatch) => {
 	const [state, dispatch] = useReducer(reducer, initialState)
 	const saveCategory = categoryData => {
 		dispatch({ type: "start" })
-		fetch(`/category/create/${user.userId}`, {
+		fetch(`/api/category/create/${user.userId}`, {
 			method: "post",
 			headers: {
 				Accept: "application/json",

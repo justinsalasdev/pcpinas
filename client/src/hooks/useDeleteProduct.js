@@ -45,7 +45,7 @@ export default (user, token, collection, productId, colDispatch) => {
 
 	const deleteProduct = () => {
 		dispatch({ type: "start" })
-		fetch(`/product/delete/${collection}/${user.userId}/${productId}`, {
+		fetch(`/api/product/delete/${collection}/${user.userId}/${productId}`, {
 			method: "delete",
 			headers: {
 				Authorization: `Bearer ${token}`

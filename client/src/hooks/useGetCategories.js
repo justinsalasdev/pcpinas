@@ -46,7 +46,7 @@ export default () => {
 	useEffect(() => {
 		if (state.status === "outdated") {
 			dispatch({ type: "start" })
-			fetch(`/categories`, {
+			fetch(`/api/categories`, {
 				method: "get",
 				headers: {
 					Accept: "application/json"
