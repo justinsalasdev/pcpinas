@@ -1,4 +1,5 @@
 import { useReducer } from "react"
+import { API } from "../config"
 
 const initialState = {
 	saving: false,
@@ -48,7 +49,7 @@ export default (
 
 	const saveProduct = productFormData => {
 		dispatch({ collection: "start" })
-		fetch(`/api/product/${mode}/${collection}/${user.userId}/${productId}`, {
+		fetch(`${API}/product/${mode}/${collection}/${user.userId}/${productId}`, {
 			method: isEdit ? "put" : "post",
 			headers: {
 				Accept: "application/json",

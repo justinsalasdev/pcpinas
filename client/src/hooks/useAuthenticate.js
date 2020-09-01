@@ -1,4 +1,5 @@
 import { useReducer } from "react"
+import { API } from "../config"
 
 const initialState = {
 	entering: false,
@@ -36,7 +37,7 @@ export default (history, authDispatch) => {
 	const login = signinData => {
 		dispatch({ type: "start" })
 
-		fetch(`/api/login`, {
+		fetch(`${API}/login`, {
 			method: "post",
 			headers: {
 				Accept: "application/json",

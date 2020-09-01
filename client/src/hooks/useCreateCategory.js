@@ -1,4 +1,5 @@
 import { useReducer } from "react"
+import { API } from "../config"
 
 const initialState = {
 	saving: false,
@@ -39,7 +40,7 @@ export default (user, token, setSelectedCat, getCatDispatch) => {
 	const [state, dispatch] = useReducer(reducer, initialState)
 	const saveCategory = categoryData => {
 		dispatch({ type: "start" })
-		fetch(`/api/category/create/${user.userId}`, {
+		fetch(`${API}/category/create/${user.userId}`, {
 			method: "post",
 			headers: {
 				Accept: "application/json",

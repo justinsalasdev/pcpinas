@@ -1,4 +1,5 @@
 import { useReducer } from "react"
+import { API } from "../config"
 
 const initialState = {
 	initiated: false,
@@ -45,7 +46,7 @@ export default (user, token, collection, productId, colDispatch) => {
 
 	const deleteProduct = () => {
 		dispatch({ type: "start" })
-		fetch(`/api/product/delete/${collection}/${user.userId}/${productId}`, {
+		fetch(`${API}/product/delete/${collection}/${user.userId}/${productId}`, {
 			method: "delete",
 			headers: {
 				Authorization: `Bearer ${token}`

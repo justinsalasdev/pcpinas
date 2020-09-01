@@ -1,4 +1,5 @@
 import { useReducer, useEffect } from "react"
+import { API } from "../config"
 
 const initialState = {
 	status: "outdated",
@@ -46,7 +47,7 @@ export default () => {
 	useEffect(() => {
 		if (state.status === "outdated") {
 			dispatch({ type: "start" })
-			fetch(`/api/categories`, {
+			fetch(`${API}/categories`, {
 				method: "get",
 				headers: {
 					Accept: "application/json"

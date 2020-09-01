@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { API } from "../config"
 
 export default (collection, colState, colDispatch) => {
 	const colStatus = colState.status[collection]
@@ -6,7 +7,7 @@ export default (collection, colState, colDispatch) => {
 	useEffect(() => {
 		if (colStatus === "outdated") {
 			colDispatch({ type: "start" })
-			fetch(`/api/products/${collection}`, {
+			fetch(`${API}/products/${collection}`, {
 				method: "get",
 				headers: {
 					Accept: "application/json"

@@ -1,4 +1,5 @@
 import { useReducer } from "react"
+import { API } from "../config"
 
 const initialState = {
 	creating: false,
@@ -33,7 +34,7 @@ export default () => {
 
 	const signup = signupData => {
 		dispatch({ type: "start" })
-		fetch(`/api/signup`, {
+		fetch(`${API}/signup`, {
 			method: "post",
 			headers: {
 				Accept: "application/json",

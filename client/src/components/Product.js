@@ -7,6 +7,7 @@ import Spinner from "./Spinner"
 import Prompt from "./Prompt"
 import { useColDispatch } from "../context/collectionContext"
 import { Link } from "react-router-dom"
+import { API } from "../config"
 
 export default props => {
 	const colDispatch = useColDispatch()
@@ -102,7 +103,7 @@ export default props => {
 								<img
 									className="thumbnail__content--product"
 									alt="product"
-									src={`/product/photo/${collection}/${_id}`}
+									src={`${API}/product/photo/${collection}/${_id}`}
 								/>
 							</div>
 						</div>
