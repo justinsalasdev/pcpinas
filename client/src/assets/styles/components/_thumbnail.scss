@@ -1,0 +1,29 @@
+.thumbnail {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	@extend .flex-center;
+
+	&__content {
+		object-fit: contain;
+		object-position: 50% 50%;
+		position: relative;
+		&--product {
+			@extend .thumbnail__content;
+			height: 25rem;
+			width: 25rem;
+		}
+
+		&--form {
+			@extend .thumbnail__content;
+			height: 40rem;
+			width: 40rem;
+		}
+
+		&--side {
+			@extend .thumbnail__content;
+			height: 10rem;
+			width: 10rem;
+		}
+	}
+}

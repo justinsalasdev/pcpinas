@@ -1,0 +1,14 @@
+switch from express-jwt
+to jwt.verify
+
+
+
+done
+switch from express-jwt
+to jwt.verify
+
+
+//add in deployment
+add execute db.createCollection: --with validator and $jsonSchema : additionalProperties:false,
+db.users.createIndex( { "email": 1 }, { unique: true, name:'email-index' } )
+db.categories.createIndex( { "name": 1 }, { unique: true, name:'category-index' } )

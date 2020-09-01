@@ -1,0 +1,11 @@
+@import "../common/variables.scss";
+
+.navigation {
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    margin: 0.5rem;
+  }
+}

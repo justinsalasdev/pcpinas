@@ -1,0 +1,42 @@
+@import "../common/variables.scss";
+
+.link {
+  width: 100%;
+  outline: none;
+  text-decoration: none;
+
+  &--nav {
+    @extend .link;
+    display: inline-block;
+    padding: 1rem;
+    color: $platinum;
+    font-weight: bold;
+    border: 1px solid transparent;
+    transition: background 0.2s;
+
+    &:not(.link--active):focus {
+      color: $info-light-30;
+    }
+  }
+
+  &--active {
+    color: $info;
+    background-color: rgba($primary-light-20, 0.5);
+    font-weight: bold;
+  }
+
+  &--icon {
+    @extend .link;
+    height: 3rem;
+    width: 4rem;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+
+    color: $white;
+    box-shadow: 0.4rem 0.4rem 0.8rem $shadow-inactive;
+
+    &:active {
+      box-shadow: 0.1rem 0.1rem 0.2rem $shadow-active;
+    }
+  }
+}

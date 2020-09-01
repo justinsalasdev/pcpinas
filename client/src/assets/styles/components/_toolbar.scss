@@ -1,0 +1,8 @@
+@import "../common/variables.scss";
+
+.toolbar {
+  background-color: $primary;
+  box-shadow: 0 0.2rem 0.4rem $shadow-inactive;
+  display: flex;
+  justify-content: flex-end;
+}

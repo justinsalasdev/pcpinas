@@ -1,0 +1,14 @@
+[
+    {"name":"Computers"},
+    {"name":"Components"},
+    {"name":"Peripherals"},
+    {"name":"Net Devices"},
+    {"name":"Accessories"},
+    {"name":"Gadgets"},
+
+
+    {"name":"Desktops","parent":"Computers"},
+    {"name":"Notebooks","parent":"Computers"},
+    {"name":"Mini PC","parent":"Computers"}
+
+]

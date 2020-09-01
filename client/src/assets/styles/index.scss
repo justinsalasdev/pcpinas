@@ -1,0 +1,59 @@
+@import "./common/variables.scss";
+@import "./common/fonts.scss";
+
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: inherit;
+}
+
+li {
+	list-style: none;
+}
+
+html {
+	@media screen and (max-width: 1920px) {
+		font-size: 66.406%; // 17/16* 62.5
+	}
+
+	@media screen and (max-width: 1100px) {
+		font-size: 62.5%; /*default browser font = 16px => convert to 10px [16 * 62.5%]*/
+	}
+
+	@media screen and (max-width: 800px) {
+		font-size: 59.6%; // 15/16 * 62.5
+	}
+	@media screen and (max-width: 414px) {
+		font-size: 54.68%; // 14/16 * 62.5
+	}
+}
+
+body {
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	font-family: "Noto Sans";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@import "./components/root";
+@import "./components/prompt";
+@import "./components/button";
+@import "./components/form";
+@import "./components/input";
+@import "./components/link";
+@import "./components/toolbar";
+@import "./components/navigation";
+@import "./components/loader";
+@import "./components/spinner";
+@import "./components/select";
+@import "./components/photo";
+@import "./components/textarea";
+@import "./components/product";
+@import "./components/products";
+@import "./components/range";
+@import "./components/radio";
+@import "./components/shop";
+@import "./components/thumbnail";

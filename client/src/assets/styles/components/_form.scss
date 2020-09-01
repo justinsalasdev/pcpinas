@@ -1,0 +1,135 @@
+@import "../common/variables.scss";
+
+.form {
+	display: grid;
+
+	&--processors,
+	&--graphics,
+	&--screens {
+		@extend .form;
+		grid-template-columns: 15rem 15rem 1fr;
+		grid-template-areas:
+			"brand brand photo"
+			"productName productName photo"
+			"model model photo"
+			"price quantity photo"
+			"description description photo"
+			"actions actions photo";
+	}
+
+	&--peripherals {
+		@extend .form;
+		grid-template-columns: 1fr 1fr 50%;
+		grid-template-areas:
+			"type type photo"
+			"brand brand photo"
+			"productName productName photo"
+			"model model photo"
+			"price quantity photo"
+			"description description description"
+			"actions actions actions";
+	}
+
+	&--powersupplies {
+		@extend .form;
+		grid-template-columns: 1fr 1fr 50%;
+		grid-template-areas:
+			"brand brand photo"
+			"productName productName photo"
+			"model model photo"
+			"rating rating photo"
+			"price quantity photo"
+			"description description description"
+			"actions actions actions";
+	}
+
+	&--storage {
+		@extend .form;
+		grid-template-columns: 1fr 1fr 50%;
+		grid-template-areas:
+			"brand brand photo"
+			"productName productName photo"
+			"model model photo"
+			"capacity capacity photo"
+			"type type photo"
+			"price quantity photo"
+			"description description description"
+			"actions actions actions";
+	}
+
+	&--motherboards {
+		@extend .form;
+		grid-template-columns: 1fr 1fr 50%;
+		grid-template-areas:
+			"brand brand photo"
+			"productName productName photo"
+			"model model photo"
+			"form socket photo"
+			"price quantity photo"
+			"description description description"
+			"actions actions actions";
+	}
+
+	&--login {
+		@extend .form;
+		grid-template-columns: 1fr;
+		grid-template-areas: "email" "password" "actions";
+	}
+
+	&__container {
+		position: relative;
+		width: 70%;
+		max-width: 90rem;
+		text-align: center;
+		padding: 1rem;
+		padding-top: 2rem;
+		box-shadow: 0.3rem 0.3rem 0.6rem $shadow-inactive;
+		border-radius: 0.5rem;
+
+		&--product {
+			grid-area: view;
+			justify-self: center;
+			align-self: center;
+		}
+
+		@media screen and (max-width: $form-input-breakpoint) {
+			width: 90%;
+		}
+
+		&--category {
+			width: 100%;
+			@media screen and (max-width: $form-input-breakpoint) {
+				width: 100%;
+			}
+		}
+	}
+
+	&__toolkit {
+		margin-bottom: 3rem;
+		font-size: 1.5rem;
+		color: $danger-light-30;
+	}
+
+	&__error {
+		margin-bottom: 1rem;
+		color: $danger-light-30;
+	}
+
+	&__actions {
+		grid-area: actions;
+		padding: $grid-container-padding;
+		width: 100%;
+		@extend .flex-center;
+	}
+
+	&__action {
+		width: 20%;
+		margin-right: 2rem;
+	}
+
+	&__spinner {
+		margin: auto;
+		width: 5rem;
+		height: 5rem;
+	}
+}

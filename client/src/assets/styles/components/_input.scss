@@ -1,0 +1,119 @@
+@import "../common/variables.scss";
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0.1rem solid $platinum-dark-5;
+  // outline: none;
+  -webkit-text-fill-color: $primary;
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.input {
+  position: relative;
+
+  width: 100%;
+  padding: $grid-container-padding;
+
+  @extend .flex-center;
+
+  &--productName {
+    grid-area: productName;
+  }
+
+  &--name {
+    grid-area: name;
+  }
+
+  &--email {
+    grid-area: email;
+  }
+
+  &--password {
+    grid-area: password;
+  }
+
+  &--brand {
+    grid-area: brand;
+  }
+
+  &--model {
+    grid-area: model;
+  }
+
+  &--price {
+    grid-area: price;
+  }
+
+  &--quantity {
+    grid-area: quantity;
+  }
+
+  &__field {
+    color: $primary;
+    border: 0.1rem solid $platinum-dark-5;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    // outline: none;
+    width: 100%;
+    padding: 1rem;
+
+    font-family: inherit;
+    font-size: 1.5rem;
+
+    &:disabled {
+      background-color: $platinum-light-8;
+    }
+
+    &:focus-within {
+      & + .input__label {
+        color: $primary;
+        font-size: 1.15rem;
+        left: $label-left-offset;
+        top: 0;
+
+        &--valid {
+          color: green;
+        }
+
+        & .input__toolkit {
+          color: $danger-light-20;
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    &:not(:placeholder-shown) {
+      @extend .input__field:focus-within;
+    }
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  &__label {
+    font-size: $label-font-size;
+    display: block;
+    color: $platinum-dark-20;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: $label-left-offset;
+    transition: top 0.1s ease-out;
+  }
+
+  &__toolkit {
+    font-size: 1.2rem;
+    color: $danger-light-30;
+  }
+}

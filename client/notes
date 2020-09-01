@@ -1,0 +1,34 @@
+todo
+
+photoInput dynamic name --> other name than "photo" to bypass required validation
+not required
+
+not done
+create static photo input
+once replace is clicked --> render real photo input 
+
+
+done
+rename global context to auth context
+create product context
+update ui after deletion
+localize loading visuals
+work on new product saving 
+redesign product form
+reinvented form-input design
+reivent signin prompt scheme same as signup
+migrate to styled components not done infancy
+show only errors that is client type
+reinvented prompt scheme signup
+migrated to react-hook-form
+move all styles in assets
+
+//photo algo
+user uploads multiple files  --> how to show individual validation messages?
+    save files in array
+    show each picture
+
+user 
+
+
+

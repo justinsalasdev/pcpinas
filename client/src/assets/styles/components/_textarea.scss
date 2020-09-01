@@ -1,0 +1,24 @@
+@import "../common/variables.scss";
+
+.description {
+  resize: none;
+  width: 100%;
+  height: 10rem;
+  padding: 0.7rem;
+  color: $platinum-dark-80;
+  font-family: "Noto Sans";
+  border: 0.1rem solid $platinum-dark-5;
+  font-size: 1.4rem;
+
+  overflow: hidden;
+
+  &__container {
+    grid-area: description;
+    padding: $grid-container-padding;
+  }
+
+  &::placeholder {
+    color: $platinum-dark-20;
+    font-size: $label-font-size + 0.1;
+  }
+}

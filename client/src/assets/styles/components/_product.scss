@@ -1,0 +1,140 @@
+@import "../common/variables.scss";
+
+.product {
+	position: relative;
+	width: 32rem;
+
+	box-shadow: 0.6rem 0.6rem 1.2rem $shadow-inactive;
+	border: 1px solid $platinum;
+	padding: 1.3rem;
+
+	&__delete {
+		background-color: rgba($danger, 0.8);
+		position: absolute;
+		top: 7rem;
+		left: 0;
+	}
+
+	&__edit {
+		background-color: rgba($primary-light-20, 0.8);
+		position: absolute;
+		top: 11rem;
+		left: 0;
+	}
+
+	&__attributes {
+		height: 45rem;
+		display: grid;
+		grid-template-columns: 30% 1fr 1fr;
+		grid-template-rows: repeat(4, auto) 1fr auto;
+		grid-template-areas:
+			"brand model model"
+			"image image image"
+			"name name price"
+			"remaining . sold"
+			"description description description"
+			"created . updated";
+
+		align-items: center;
+		// justify-items: center;
+		// vertical-align: center;
+
+		& > li {
+			padding: 1.3-$grid-container-padding;
+			display: block;
+			// overflow: hidden;
+		}
+	}
+
+	&__brand {
+		white-space: nowrap;
+		grid-area: brand;
+		// height: 5rem;
+		font-weight: bold;
+		font-size: 1.8rem;
+		// text-transform: uppercase;
+
+		padding: 0.5rem;
+	}
+
+	&__model {
+		grid-area: model;
+		justify-self: right;
+		text-transform: uppercase;
+		white-space: nowrap;
+		text-overflow: scroll;
+		// height: 3rem;
+		padding: 0.5rem;
+		font-size: 1.3rem;
+	}
+
+	&__image {
+		width: 100%;
+		height: 20rem;
+		grid-area: image;
+	}
+
+	&__name {
+		align-self: start;
+		font-size: 1.6rem;
+		padding: 0.5rem;
+		grid-area: name;
+		font-weight: bold;
+		// white-space: nowrap;
+	}
+
+	&__price {
+		grid-area: price;
+		justify-self: right;
+		align-self: start;
+		font-size: 2rem;
+		color: $primary-light-30;
+		white-space: nowrap;
+		text-overflow: scroll;
+	}
+
+	&__sold {
+		grid-area: sold;
+		font-size: 1.2rem;
+		justify-self: right;
+		// padding: 0.4rem;
+		// align-self: flex-start;
+	}
+
+	&__remaining {
+		font-size: 1.2rem;
+		grid-area: remaining;
+		justify-self: flex-start;
+		align-self: center;
+	}
+
+	&__description {
+		font-size: 1.5rem;
+		grid-area: description;
+		// height: 10rem;
+		border-top: 1px solid $platinum;
+
+		background-image: linear-gradient(
+			180deg,
+			$platinum-dark-50 10%,
+			transparent 100%
+		);
+		color: transparent;
+		-webkit-background-clip: text;
+		background-clip: text;
+		align-self: stretch;
+	}
+
+	&__created {
+		grid-area: created;
+		font-size: 1.1rem;
+		text-align: center;
+	}
+
+	&__updated {
+		text-align: center;
+		grid-area: updated;
+		font-size: 1.1rem;
+		// justify-self: center;
+	}
+}

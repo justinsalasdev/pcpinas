@@ -1,0 +1,41 @@
+@import "../common/variables.scss";
+@import "../common/animations.scss";
+
+.button {
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  min-width: 8rem;
+  box-shadow: 0.2rem 0.2rem 0.4rem $shadow-inactive;
+  outline: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+
+  &:active {
+    box-shadow: 0.1rem 0.1rem 0.2rem $shadow-active;
+    transform: translateY(0.1rem);
+  }
+
+  &:disabled {
+    color: $platinum-dark-50;
+    background-color: $platinum;
+  }
+
+  &:not(:disabled) {
+    animation: enable-button 0.3s linear;
+  }
+
+  &--success {
+    @extend .button;
+    background-color: $primary-light-30;
+    color: $white;
+  }
+
+  &--danger {
+    @extend .button;
+    background-color: $danger-light-10;
+    color: $white;
+  }
+}

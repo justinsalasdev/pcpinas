@@ -1,0 +1,22 @@
+@import "../common/variables.scss";
+
+.loader {
+  width: 30vh;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__spinner {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  &__message {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: $primary-light-40;
+  }
+}
